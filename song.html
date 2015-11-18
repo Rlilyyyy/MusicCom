@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>歌曲</title>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no, email=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="full-screen" content="yes">
+	<script src="common.js"></script>
+	<link rel="stylesheet" type="text/css" href="common.css">
+</head>
+<style type="text/css">
+	
+	.container {
+		width: 75%;
+		height: 100%;
+		float: left;
+		background-color: rgb(20,20,20);
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding: 5% 10%;
+		position: relative;
+	}
+	.search-default {
+		position: absolute;
+		top: 3%;
+		left: 0;
+		width: 100%;
+		height: auto;
+		padding: 0 5%;
+		/*IE下显示父元素width属性计算方式不同，导致整体宽度变小，所以padding需要减小，\9为IE识别*/
+		padding-right: 4%\9;
+		box-sizing: border-box;
+	}
+	.search-default #searchBtn {
+		display: block;
+		float: right;
+		color: white;
+		font-size: 1.1em;
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		background-color: rgb(42,42,42);
+		padding: 0 5px;
+		border-radius: 5px;
+		cursor: pointer;
+		margin-right: -2px;
+		position: relative;
+		z-index: 2;
+		color: #cd9d36;
+	}
+	.search-default #searchBtn:active {
+		background-color: rgb(62,62,62);
+	}
+	.search-default input {
+		display: block;
+		float: right;
+		width: 0px;
+		height: 40px;
+		box-sizing: border-box;
+		font-size: 1.2em;
+		font-family: "微软雅黑";
+		transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		border: none;
+		position: relative;
+		z-index: 3;
+		outline: none;
+		padding: 0;
+	}
+	input[type="text"]::-ms-clear{
+	    display:none;
+	}
+	.search-default .search {
+		width: 50%;
+		padding-left: 10px;
+		padding-right: 40px;
+		border: 1px solid rgb(62,62,62);
+		box-sizing: border-box;
+	}
+	.search-cancle {
+		display: block;
+		height: 100%;
+		line-height: 40px;
+		font-size: 1.5em;
+		font-weight: bold;
+		color: rgb(62,62,62);
+		position: absolute;
+		top: 0;
+		right: 5%;
+		z-index: 5;
+		cursor: pointer;
+	}
+	.search-c {
+		display: none;
+	}
+	
+	.s1_block,.s2_block,.s3_block {
+		display: inline-block;
+		margin: 1%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		vertical-align: top;
+	}
+
+	.s1_block {
+		width: 68%;
+		height: 28%;
+	}
+
+	.s2_block {
+		width: 28%;
+		height: 68%;
+	}
+
+	.s3_block {
+		width: 38%;
+		height: 37%;
+		margin-bottom: 0;
+	}
+
+	.s1_back {
+		float: left;
+		background-image: url("http://7xoehm.com1.z0.glb.clouddn.com/2.jpg");
+	}
+
+	.s2_back {
+		float: right;
+		background-image: url("http://7xoehm.com1.z0.glb.clouddn.com/3.jpg");
+	}
+
+	.s3_back {
+		background-image: url("http://7xoehm.com1.z0.glb.clouddn.com/5.jpg");
+	}
+
+	.s4_back {
+		float: left;
+		background-image: url("http://7xoehm.com1.z0.glb.clouddn.com/4.jpg");
+		background-position: right;
+	}
+
+	.s5_back {
+		float: right;
+		background-image: url("http://7xoehm.com1.z0.glb.clouddn.com/1.jpg");
+	}
+
+	.s_shadow {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(42,42,42,0.9);
+		transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		overflow: hidden;
+		opacity: 0;
+		position: relative;
+	}
+
+	.s_shadow:hover {
+		opacity: 1;
+	}
+
+	.s_text {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		margin-top: -21px;
+		color: white;
+	}
+	
+	.s_text span {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+</style>
+<body>
+	<div class="slider">
+		<span id="comname">MusicCom</span>
+		<ul>
+			<a href="index.html"><li>主页<br>HOME PAGE</li></a>
+			<a href="singer.html"><li>歌手<br>SINGER</li></a>
+			<a href="song.html"><li class="current_li">歌曲<br>SONG</li></a>
+			<a href="#"><li>搜索<br>SEARCH</li></a>
+		</ul>
+	</div>
+	
+	<div class="container">
+		<div class="search-default">
+			<input type="text" placeholder="搜索你喜欢的歌曲" id="search" autocomplete="off">
+			<span id="searchBtn">搜索歌曲</span>
+			<span class="search-c" id="search-cancle">X</span>
+		</div>
+		<div class="s1_block s1_back">
+			<a href="play.html?index=1"><div class="s_shadow">
+				<div class="s_text">
+					<span>陈奕迅</span>
+					<span>《浮夸》</span>
+				</div>
+			</div></a>
+		</div>
+		<div class="s2_block s2_back">
+			<a href="play.html?index=2"><div class="s_shadow">
+				<div class="s_text">
+					<span>陈柏宇</span>
+					<span>《你瞒我瞒》</span>
+				</div>
+			</div></a>
+		</div>
+		<div class="s3_block s3_back">
+			<a href="play.html?index=4"><div class="s_shadow">
+				<div class="s_text">
+					<span>陈奕迅</span>
+					<span>《不如不见》</span>
+				</div>
+			</div></a>
+		</div>
+		<div class="s2_block s4_back">
+			<a href="play.html?index=3"><div class="s_shadow">
+				<div class="s_text">
+					<span>陈奕迅</span>
+					<span>《爱情转移》</span>
+				</div>
+			</div></a>
+		</div>
+		<div class="s1_block s5_back">
+			<a href="play.html?index=0"><div class="s_shadow">
+				<div class="s_text">
+					<span>陈柏霖</span>
+					<span>《我不会喜欢你》</span>
+				</div>
+			</div></a>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+	$("#searchBtn")[0].onclick = function() {
+		$("#search")[0].className = "search";
+		$("#search-cancle")[0].className = "search-cancle";
+	}
+	$("#search-cancle")[0].onclick = function() {
+		this.className = "search-c";
+		$("#search")[0].className = "";
+		$("#search")[0].value = "";
+	}
+	</script>
+</body>
+</html>

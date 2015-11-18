@@ -11,10 +11,17 @@
 <style type="text/css">
 	body {
 		padding: 0;
+		margin: 0;
+		font-family: "微软雅黑";
+	}
+	.container {
 		max-width: 980px;
 		min-width: 320px;
 		margin: 0 auto;
-		font-family: "微软雅黑";
+		background-color: white;
+		border-left: 1px solid rgb(217,217,217);
+		border-right: 1px solid rgb(217,217,217);
+		border-bottom: 1px solid rgb(217,217,217);
 	}
 	.list-head {
 		padding: 5px 10px;
@@ -72,10 +79,20 @@
 		margin: 0;
 		padding: 0;
 	}
-	#list li:nth-child(even) {
+	#list a {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		background-color: inherit;
+	}
+	#list a:nth-child(even) {
 		background-color: rgb(217,217,217);
 	}
 	#list li:hover {
+		/*background-color: rgb(210,210,210);*/
+		cursor: pointer;
+	}
+	#list li:active {
 		background-color: rgb(200,200,200);
 		cursor: pointer;
 	}
@@ -83,97 +100,58 @@
 
 </style>
 <body>
-	<div class="list-head">
-		播放列表
+	<div class="container">
+		<div class="list-head">
+			播放列表
+		</div>
+		<div class="list-model" id="list-default">
+			<div class="list-img" style="height:auto;"></div>
+			<span class="list-title list-span">歌名</span>
+			<span class="list-time list-span">时长</span>
+			<span class="list-author list-span">歌手</span>
+		</div>
+		<ul id="list">
+			<a href="index.html?index=0"><li>
+				<div class="list-model">
+					<div class="list-img"><img src="1.jpg"></div>
+					<span class="list-title list-span">我不会喜欢你</span>
+					<span class="list-time list-span">4:30</span>
+					<span class="list-author list-span">陈柏霖</span>
+				</div>
+			</li></a>
+			<a href="index.html?index=1"><li>
+				<div class="list-model">
+					<div class="list-img"><img src="2.jpg"></div>
+					<span class="list-title list-span">浮夸</span>
+					<span class="list-time list-span">4:30</span>
+					<span class="list-author list-span">陈奕迅</span>
+				</div>
+			</li></a>
+			<a href="index.html?index=2"><li>
+				<div class="list-model">
+					<div class="list-img"><img src="3.jpg"></div>
+					<span class="list-title list-span">你瞒我瞒</span>
+					<span class="list-time list-span">4:30</span>
+					<span class="list-author list-span">陈柏宇</span>
+				</div>
+			</li></a>
+			<a href="index.html?index=3"><li>
+				<div class="list-model">
+					<div class="list-img"><img src="4.jpg"></div>
+					<span class="list-title list-span">爱情转移</span>
+					<span class="list-time list-span">4:30</span>
+					<span class="list-author list-span">陈奕迅</span>
+				</div>
+			</li></a>
+			<a href="index.html?index=4"><li>
+				<div class="list-model">
+					<div class="list-img"><img src="5.jpg"></div>
+					<span class="list-title list-span">不如不见</span>
+					<span class="list-time list-span">4:30</span>
+					<span class="list-author list-span">陈奕迅</span>
+				</div>
+			</li></a>
+		</ul>
 	</div>
-	<div class="list-model" id="list-default">
-		<div class="list-img" style="height:auto;"></div>
-		<span class="list-title list-span">歌名</span>
-		<span class="list-time list-span">时长</span>
-		<span class="list-author list-span">歌手</span>
-	</div>
-	<ul id="list">
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-		<li>
-			<div class="list-model">
-				<div class="list-img"><img src="1.jpg"></div>
-				<span class="list-title list-span">不能说的秘密</span>
-				<span class="list-time list-span">4:30</span>
-				<span class="list-author list-span">周杰伦</span>
-			</div>
-		</li>
-	</ul>
-	
 </body>
 </html>
