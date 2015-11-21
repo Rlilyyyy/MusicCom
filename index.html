@@ -1,345 +1,479 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>主页</title>
-	<meta charset="utf-8">
-	<meta name="format-detection" content="telephone=no, email=no">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="full-screen" content="yes">
-	<script src="common.js"></script>
-	<link rel="stylesheet" type="text/css" href="common.css">
-	<link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>主页</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="full-screen" content="yes">
+    <script src="common.js"></script>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+        overflow: auto;
+    }
+    
+    .container {
+        width: 75%;
+        height: 100%;
+        position: relative;
+        background-color: rgb(20, 20, 20);
+        float: left;
+    }
+    
+    .clear {
+        clear: both;
+    }
+    
+    @keyframes rotate {
+        from {
+            -webkit-transform: rotate(0deg)
+        }
+        to {
+            -webkit-transform: rotate(360deg)
+        }
+    }
+    
+    @-webkit-keyframes rotate {
+        from {
+            -webkit-transform: rotate(0deg)
+        }
+        to {
+            -webkit-transform: rotate(360deg)
+        }
+    }
+    
+    @-moz-keyframes rotate {
+        from {
+            -moz-transform: rotate(0deg)
+        }
+        to {
+            -moz-transform: rotate(360deg)
+        }
+    }
+    
+    @-ms-keyframes rotate {
+        from {
+            -ms-transform: rotate(0deg)
+        }
+        to {
+            -ms-transform: rotate(360deg)
+        }
+    }
+    
+    @-o-keyframes rotate {
+        from {
+            -o-transform: rotate(0deg)
+        }
+        to {
+            -o-transform: rotate(360deg)
+        }
+    }
+    
+    #cd {
+        margin: 0 auto;
+        margin-top: 15px;
+        width: 250px;
+        /**/
+        height: 250px;
+        /**/
+        border-radius: 50%;
+        border: 5px solid rgba(200, 200, 200, 0.9);
+        position: relative;
+        overflow: hidden;
+        animation: rotate 15s linear 0s infinite;
+        -webkit-animation: rotate 15s linear 0s infinite;
+        -moz-animation: rotate 15s linear 0s infinite;
+        -o-animation: rotate 15s linear 0s infinite;
+        -ms-animation: rotate 15s linear 0s infinite;
+    }
+    
+    #cd-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    .center-default {}
+    
+    #cd-center-1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -40px;
+        /**/
+        margin-left: -40px;
+        /**/
+        width: 80px;
+        /**/
+        height: 80px;
+        /**/
+        background-color: white;
+        border: 5px solid rgba(200, 200, 200, 0.9);
+        z-index: 2;
+        border-radius: 50%;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    #cd-center-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        /**/
+        margin-left: -20px;
+        /**/
+        width: 40px;
+        /**/
+        height: 40px;
+        /**/
+        background-color: white;
+        border: 3px solid rgba(200, 200, 200, 0.9);
+        z-index: 3;
+        border-radius: 50%;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    #author {
+        width: 100%;
+        margin-top: 15px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        line-height: 1.5em;
+        font-family: "Centaur", "微软雅黑";
+    }
+    
+    #lrc {
+        width: 100%;
+        height: 160px;
+        margin-top: 10px;
+        font-size: 1.1em;
+        text-align: center;
+        color: #AAA;
+        /*font-weight: bold;*/
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #gradients {
+        width: 100%;
+        height: 70px;
+        background: -webkit-linear-gradient(rgb(20, 20, 20), rgba(20, 20, 20, 0));
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(rgb(20, 20, 20), rgba(20, 20, 20, 0));
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(rgb(20, 20, 20), rgba(20, 20, 20, 0));
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(rgb(20, 20, 20), rgba(20, 20, 20, 0));
+        /* 标准的语法 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+    }
+    
+    #gradients_d {
+        width: 100%;
+        height: 70px;
+        background: -webkit-linear-gradient(rgba(20, 20, 20, 0), rgb(20, 20, 20));
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(rgba(20, 20, 20, 0), rgb(20, 20, 20));
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(rgba(20, 20, 20, 0), rgb(20, 20, 20));
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(rgba(20, 20, 20, 0), rgb(20, 20, 20));
+        /* 标准的语法 */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+    }
+    
+    #lrc ul {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        /* Firefox 4 */
+        -webkit-transition: all 0.5s;
+        /* Safari 和 Chrome */
+        -o-transition: all 0.5s;
+        /* Opera */
+    }
+    
+    #lrc li {
+        min-height: 25px;
+        list-style-type: none;
+        padding-bottom: 5px;
+        transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        /* Firefox 4 */
+        -webkit-transition: all 0.5s;
+        /* Safari 和 Chrome */
+        -o-transition: all 0.5s;
+        /* Opera */
+    }
+    
+    #lrc li:hover {
+        cursor: default;
+    }
+    
+    .current-lrc {
+        color: rgb(255, 255, 255);
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        /* Firefox 4 */
+        -webkit-transition: all 0.5s;
+        /* Safari 和 Chrome */
+        -o-transition: all 0.5s;
+        /* Opera */
+    }
+    
+    #control {
+        width: 75%;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(42, 42, 42, 1);
+        text-align: center;
+        line-height: 60px;
+        font-size: 1.5em;
+        color: rgb(113, 198, 113);
+        z-index: 999;
+    }
+    
+    #control-middle {
+        margin-left: 25px;
+        margin-right: 25px;
+        width: 2em;
+        font-size: 1.6em;
+    }
+    
+    .pro-default {
+        width: 0%;
+        height: 5px;
+        margin: 5px 0px;
+        border-radius: 2px;
+        position: absolute;
+        top: -5px;
+        left: 0;
+        transition: width 0.5s;
+        -moz-transition: width 0.5s;
+        /* Firefox 4 */
+        -webkit-transition: width 0.5s;
+        /* Safari 和 Chrome */
+        -o-transition: width 0.5s;
+        /* Opera */
+    }
+    
+    #pro-back {
+        width: 100%;
+        background-color: rgb(42, 42, 42);
+        z-index: 1;
+    }
+    
+    #pro-now {
+        width: 0px;
+        background-color: rgb(113, 198, 113);
+        z-index: 3;
+        border-right: 3px solid green;
+        box-shadow: 0 0 10px black;
+    }
+    
+    #pro-load {
+        width: 0px;
+        background-color: #AAA;
+        z-index: 2;
+    }
+    
+    #pro-back:hover,
+    #pro-now:hover,
+    #pro-load:hover {
+        cursor: pointer;
+    }
+    
+    .control-right {
+        position: absolute;
+        top: 22px;
+        right: 20px;
+        color: rgb(113, 198, 113);
+    }
+    
+    .fa {
+        margin-right: -7px;
+        margin-left: -7px;
+        vertical-align: middle;
+    }
+    
+    .fa:hover {
+        text-shadow: 0 0 10px rgb(113, 198, 113);
+        cursor: pointer;
+    }
+    
+    #menu {
+        display: none;
+    }
+    
+    @media only screen and (max-width: 750px) {
+        body {
+            min-width: 0;
+        }
+        #menu {
+            display: block;
+            color: rgb(113, 198, 113);
+            position: fixed;
+            font-size: 30px;
+            left: 5%;
+            top: 5%;
+        }
+        .slider {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s ease-in-out;
+            position: absolute;
+        }
+        .slider-opening {
+            position: relative;
+            display: block;
+            width: 100%;
+            visibility: visible;
+            opacity: 1;
+        }
+        .container {
+            width: 100%;
+        }
+        #control {
+            width: 100%;
+        }
+    }
+    </style>
 </head>
-<style type="text/css">
-	body {
-		overflow: auto;
-	}
-	.container {
-		width: 75%;
-		height: 100%;
-		position: relative;
-		background-color: rgb(20,20,20);
-		float: left;
-	}
-	.clear {
-		clear: both;
-	}
 
-
-	@keyframes rotate{
-		from{-webkit-transform:rotate(0deg)}
-		to{-webkit-transform:rotate(360deg)}
-	}
-	@-webkit-keyframes rotate{
-		from{-webkit-transform:rotate(0deg)}
-		to{-webkit-transform:rotate(360deg)}
-	}
-	@-moz-keyframes rotate{
-		from{-moz-transform:rotate(0deg)}
-		to{-moz-transform:rotate(360deg)}
-	}
-	@-ms-keyframes rotate{
-		from{-ms-transform:rotate(0deg)}
-		to{-ms-transform:rotate(360deg)}
-	}
-	@-o-keyframes rotate{
-		from{-o-transform:rotate(0deg)}
-		to{-o-transform:rotate(360deg)}
-	}
-
-	#cd {
-		margin: 0 auto;
-		margin-top: 15px;
-		width: 250px;/**/
-		height: 250px;/**/
-		border-radius: 50%;
-		border: 5px solid rgba(200,200,200,0.9);
-		position: relative;
-		overflow: hidden;
-		animation: rotate 15s linear 0s infinite;
-		-webkit-animation: rotate 15s linear 0s infinite;
-		-moz-animation: rotate 15s linear 0s infinite;
-		-o-animation: rotate 15s linear 0s infinite;
-		-ms-animation: rotate 15s linear 0s infinite;
-	}
-
-	#cd-img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-		z-index: 1;
-	}
-
-	.center-default {
-
-	}
-
-	#cd-center-1 {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-top: -40px;/**/
-		margin-left: -40px;/**/
-		width: 80px;/**/
-		height: 80px;/**/
-		background-color: white;
-		border: 5px solid rgba(200,200,200,0.9);
-		z-index: 2;
-		border-radius: 50%;
-		box-sizing: border-box;
-		display: block;
-	}
-
-	#cd-center-2 {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-top: -20px;/**/
-		margin-left: -20px;/**/
-		width: 40px;/**/
-		height: 40px;/**/
-		background-color: white;
-		border: 3px solid rgba(200,200,200,0.9);
-		z-index: 3;
-		border-radius: 50%;
-		box-sizing: border-box;
-		display: block;
-	}
-
-	#author {
-		width: 100%;
-		margin-top: 15px;
-		text-align: center;
-		color: rgb(255,255,255);
-		line-height: 1.5em;
-		font-family: "Centaur","微软雅黑";
-	}
-
-	#lrc {
-		width: 100%;
-		height: 160px;
-		margin-top: 10px;
-		font-size: 1.1em;
-		text-align: center;
-		color: #AAA;
-		/*font-weight: bold;*/
-		position: relative;
-		overflow: hidden;
-	}
-
-	#gradients {
-		width: 100%;
-		height: 70px;
-		background: -webkit-linear-gradient(rgb(20,20,20), rgba(20,20,20,0)); /* Safari 5.1 - 6.0 */
-		background: -o-linear-gradient(rgb(20,20,20), rgba(20,20,20,0)); /* Opera 11.1 - 12.0 */
-		background: -moz-linear-gradient(rgb(20,20,20), rgba(20,20,20,0)); /* Firefox 3.6 - 15 */
-		background: linear-gradient(rgb(20,20,20), rgba(20,20,20,0)); /* 标准的语法 */
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 5;
-	}
-
-	#gradients_d {
-		width: 100%;
-		height: 70px;
-		background: -webkit-linear-gradient(rgba(20,20,20,0), rgb(20,20,20)); /* Safari 5.1 - 6.0 */
-		background: -o-linear-gradient(rgba(20,20,20,0), rgb(20,20,20)); /* Opera 11.1 - 12.0 */
-		background: -moz-linear-gradient(rgba(20,20,20,0), rgb(20,20,20)); /* Firefox 3.6 - 15 */
-		background: linear-gradient(rgba(20,20,20,0), rgb(20,20,20)); /* 标准的语法 */
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		z-index: 5;
-	}
-
-	#lrc ul {
-		width: 100%;
-		padding: 0;
-		margin: 0;
-		position: absolute;
-		top: 60px;
-		left: 0;
-		transition: all 0.5s;
-		-moz-transition: all 0.5s;	/* Firefox 4 */
-		-webkit-transition: all 0.5s;	/* Safari 和 Chrome */
-		-o-transition: all 0.5s;	/* Opera */
-	}
-
-	#lrc li {
-		min-height: 25px;
-		list-style-type: none;
-		padding-bottom: 5px;
-		transition: all 0.5s;
-		-moz-transition: all 0.5s;	/* Firefox 4 */
-		-webkit-transition: all 0.5s;	/* Safari 和 Chrome */
-		-o-transition: all 0.5s;	/* Opera */
-	}
-
-	#lrc li:hover {
-		cursor: default;
-	}
-
-	.current-lrc {
-		color: rgb(255,255,255);
-		font-size: 1.1em;
-		font-weight: bold;
-		transition: all 0.5s;
-		-moz-transition: all 0.5s;	/* Firefox 4 */
-		-webkit-transition: all 0.5s;	/* Safari 和 Chrome */
-		-o-transition: all 0.5s;	/* Opera */
-	}
-
-	#control {
-		width: 75%;
-		height: 60px;
-		position: fixed;
-		bottom: 0;
-		right: 0;
-		background-color: rgba(42,42,42,1);
-		text-align: center;
-		line-height: 60px;
-		font-size: 1.5em;
-		color: rgb(113,198,113);
-		z-index: 999;
-	}
-
-	#control-middle {
-		margin-left: 25px;
-		margin-right: 25px;
-		width: 2em;
-		font-size: 1.6em;
-	}
-
-	.pro-default {
-		width: 0%;
-		height: 5px;
-		margin: 5px 0px;
-		border-radius: 2px;
-		position: absolute;
-		top: -5px;
-		left: 0;
-		transition: width 0.5s;
-		-moz-transition: width 0.5s;	/* Firefox 4 */
-		-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
-		-o-transition: width 0.5s;	/* Opera */
-	}
-
-	#pro-back {
-		width: 100%;
-		background-color: rgb(42,42,42);
-		z-index: 1;
-	}
-
-	#pro-now {
-		width: 0px;
-		background-color: rgb(113,198,113);
-		z-index: 3;
-		border-right: 3px solid green;
-		box-shadow: 0 0 10px black;
-	}
-
-	#pro-load {
-		width: 0px;
-		background-color: #AAA;
-		z-index: 2;
-	}
-
-	#pro-back:hover,#pro-now:hover,#pro-load:hover {
-		cursor: pointer;
-	}
-
-	.control-right {
-		position: absolute;
-		top: 22px;
-		right: 20px;
-		color: rgb(113,198,113);
-	}
-	.fa {
-		margin-right: -7px;
-		margin-left: -7px;
-		vertical-align: middle;
-	}
-
-	.fa:hover {
-		text-shadow: 0 0 10px rgb(113,198,113);
-		cursor: pointer;
-	}
-</style>
 <body>
-	<div class="slider">
-		<span id="comname">MusicCom</span>
-		<ul>
-			<a href="index.html"><li class="current_li">主页<br>HOME PAGE</li></a>
-			<a href="singer.html"><li>歌手<br>SINGER</li></a>
-			<a href="song.html"><li>歌曲<br>SONG</li></a>
-			<a href="#"><li>搜索<br>SEARCH</li></a>
-		</ul>
-	</div>
-	<!-- <div class="clear"></div> -->
-	<div class="container">
-		<!-- CD -->
-		<div id="cd">
-			<img src="http://7xoehm.com1.z0.glb.clouddn.com/1.jpg" id="cd-img">
-			<span id="cd-center-1"></span>
-			<span id="cd-center-2"></span>
-		</div>
-
-		<div id="author">
-			演唱:<span id="singer">周杰伦</span><br>
-			<!-- 作词:<span>方文山</span>
+    <div class="slider" id="slider">
+        <span id="comname">MusicCom</span>
+        <ul>
+            <a href="index.html">
+                <li class="current_li">主页
+                    <br>HOME PAGE</li>
+            </a>
+            <a href="singer.html">
+                <li>歌手
+                    <br>SINGER</li>
+            </a>
+            <a href="song.html">
+                <li>歌曲
+                    <br>SONG</li>
+            </a>
+            <a href="#">
+                <li>搜索
+                    <br>SEARCH</li>
+            </a>
+        </ul>
+    </div>
+    <!-- <div class="clear"></div> -->
+    <div class="container" id="container">
+        <div id="menu" onclick="toggleMenu()">
+            <i class="fa fa-align-justify"></i>
+        </div>
+        <!-- CD -->
+        <div id="cd">
+            <img src="http://7xoehm.com1.z0.glb.clouddn.com/1.jpg" id="cd-img">
+            <span id="cd-center-1"></span>
+            <span id="cd-center-2"></span>
+        </div>
+        <div id="author">
+            演唱:<span id="singer">周杰伦</span>
+            <br>
+            <!-- 作词:<span>方文山</span>
 			&nbsp;&nbsp;
 			作曲:<span>周杰伦</span> -->
-		</div>
+        </div>
+        <div id="lrc">
+            <div id="gradients"></div>
+            <div id="gradients_d"></div>
+            <ul id="lrc-ul" style="top: 60px;">
+                <li class="current-lrc">第一句歌词</li>
+                <li>第二句歌词</li>
+                <li>第三句歌词</li>
+                <li>第四句歌词</li>
+                <li>第五句歌词</li>
+                <li>第四句歌词</li>
+                <li>第五句歌词</li>
+                <li>第四句歌词</li>
+                <li>第五句歌词</li>
+                <li>第四句歌词</li>
+                <li>第五句歌词</li>
+                <li>第四句歌词</li>
+                <li>第五句歌词</li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <div id="control">
+            <span class="pro-default" id="pro-back"></span>
+            <span class="pro-default" id="pro-now"></span>
+            <span class="pro-default" id="pro-load"></span>
+            <span class="fa fa-backward" id="back"></span>
+            <span class="fa fa-play" id="control-middle"></span>
+            <span class="fa fa-forward" id="forward"></span>
+            <a href="list.html"><span class="fa fa-align-right control-right"></span></a>
+            <audio src="" id="audio">
+                您的浏览器不支持 audio 标签。
+            </audio>
+        </div>
+    </div>
+    <script src="songController.js"></script>
+    <script type="text/javascript">
+    var temp = new SongControl();
 
-		<div id="lrc">
-			<div id="gradients"></div>
-			<div id="gradients_d"></div>
-			<ul id="lrc-ul" style="top: 60px;">
-				<li class="current-lrc">第一句歌词</li>
-				<li>第二句歌词</li>
-				<li>第三句歌词</li>
-				<li>第四句歌词</li>
-				<li>第五句歌词</li>
-				<li>第四句歌词</li>
-				<li>第五句歌词</li>
-				<li>第四句歌词</li>
-				<li>第五句歌词</li>
-				<li>第四句歌词</li>
-				<li>第五句歌词</li>
-				<li>第四句歌词</li>
-				<li>第五句歌词</li>
-			</ul>
-		</div>
-		<div class="clear"></div>
+    // 控制器开始工作
+    temp.start();
 
-		<div id="control">
-			<span class="pro-default" id="pro-back"></span>
-			<span class="pro-default" id="pro-now"></span>
-			<span class="pro-default" id="pro-load"></span>
-			<span class="fa fa-backward" id="back"></span>
-			<span class="fa fa-play" id="control-middle"></span>
-			<span class="fa fa-forward" id="forward"></span>
-			<a href="list.html"><span class="fa fa-align-right control-right"></span></a>
-			<audio src="" id="audio">
-				您的浏览器不支持 audio 标签。
-			</audio>
-		</div>
-	</div>
-	<script src="songController.js"></script>
-	<script type="text/javascript">
-		var temp = new SongControl();
+    // 按钮点击事件
+    $("#control-middle")[0].onclick = temp.playOrPause;
+    $("#back")[0].onclick = temp.back;
+    $("#forward")[0].onclick = temp.forward;
 
-		// 控制器开始工作
-		temp.start();
 
-		// 按钮点击事件
-		$("#control-middle")[0].onclick = temp.playOrPause;
-		$("#back")[0].onclick = temp.back;
-		$("#forward")[0].onclick = temp.forward;
-	</script>
+    var toggleMenu = function() {
+        var opening = false;
+
+        var _state = {
+            toggle: function() {
+                opening = opening === false ? true : false;
+            }
+        }
+
+        var slider = document.getElementById('slider');
+        var container = document.getElementById('container');
+
+        return function() {
+            _state.toggle();
+            if (opening === true) {
+                addClass(slider, 'slider-opening');
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+                removeClass(slider, 'slider-opening');
+            }
+        };
+    }();
+    </script>
 </body>
+
 </html>
