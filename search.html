@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>搜索</title>
     <meta charset="utf-8">
@@ -10,115 +11,153 @@
     <link rel="stylesheet" type="text/css" href="common.css">
     <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <style type="text/css">
-        .container {
-            width: 75%;
-            height: 100%;
-            float: left;
-            background-color: rgb(20, 20, 20);
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            padding: 5% 10%;
-            position: relative;
-            overflow-y: scroll;
+    .container {
+        width: 75%;
+        height: 100%;
+        float: left;
+        background-color: rgb(20, 20, 20);
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        padding: 5% 10%;
+        position: relative;
+        overflow-y: scroll;
+    }
+    
+    .form_c {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .form_c input {
+        width: 100%;
+        display: block;
+        font-size: 1.1em;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid rgb(42, 42, 42);
+        padding-left: 10px;
+        padding-right: 90px;
+        outline: none;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .form_c button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        font-size: 1.1em;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        background-color: rgb(42, 42, 42);
+        padding: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 2;
+        color: #cd9d36;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .form_c button:active {
+        background-color: rgb(62, 62, 62);
+    }
+    
+    input,
+    button {
+        font-family: "微软雅黑";
+    }
+    
+    input[type="text"]::-ms-clear {
+        display: none;
+    }
+    
+    .search_result {
+        width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        margin-top: 50px;
+    }
+    
+    .search_result ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    .search_result ul li {
+        display: block;
+        height: 100px;
+        font-family: "微软雅黑";
+        color: white;
+        border: 6px double rgb(42, 42, 42);
+        line-height: 100px;
+        position: relative;
+    }
+    
+    .search_result ul li a {
+        color: inherit;
+    }
+    
+    .search_result ul li img {
+        width: 100px;
+        height: 100px;
+        float: left;
+    }
+    
+    .author {
+        display: inline-block;
+        float: left;
+        padding-left: 50px;
+    }
+    
+    .play {
+        position: absolute;
+        height: 100%;
+        line-height: 100px;
+        top: 0;
+        right: 50px;
+        font-size: 3em;
+        cursor: pointer;
+    }
+    
+    .play:hover {
+        color: rgb(113, 198, 113);
+        font-size: 3.5em;
+    }
+    
+    @media only screen and (max-width: 450px) {
+        body {
+            min-width: 0;
+            overflow-y: auto;
         }
-        .form_c {
-            position: relative;
-            width: 100%;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-        }
-        .form_c input {
-            width: 100%;
-            display: block;
-            font-size: 1.1em;
-            height: 40px;
-            border-radius: 5px;
-            border: 1px solid rgb(42, 42, 42);
-            padding-left: 10px;
-            padding-right: 90px;
-            outline: none;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-        }
-        .form_c button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: block;
-            font-size: 1.1em;
-            text-align: center;
-            height: 40px;
-            line-height: 40px;
-            background-color: rgb(42, 42, 42);
-            padding: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 2;
-            color: #cd9d36;
-            border: none;
-            outline: none;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-        }
-        .form_c button:active {
-            background-color: rgb(62, 62, 62);
-        }
-
-        input,button {
-            font-family: "微软雅黑";
-        }
-        input[type="text"]::-ms-clear {
+        .slider {
             display: none;
         }
-
-        .search_result {
+        .container {
             width: 100%;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            margin-top: 50px;
         }
-        .search_result ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-        .search_result ul li {
-            display: block;
-            height: 100px;
-            font-family: "微软雅黑";
-            color: white;
-            border: 6px double rgb(42,42,42);
-            line-height: 100px;
-            position: relative;
-        }
-        .search_result ul li a {
-            color: inherit;
-        }
-        .search_result ul li img {
-            width: 100px;
-            height: 100px;
-            float: left;
-        }
+
         .author {
-            display: inline-block;
-            float: left;
-            padding-left: 50px;
+            display: block;
+            float: none;
+            font-size: 12px;
+            text-indent: 0.1cm;
         }
+
         .play {
-            position: absolute;
-            height: 100%;
-            line-height: 100px;
-            top: 0;
-            right: 50px;
-            font-size: 3em;
-            cursor: pointer;
+            right: 5px;
         }
-        .play:hover {
-            color: rgb(113, 198, 113);
-            font-size: 3.5em;
-        }
+    }
     </style>
 </head>
+
 <body>
     <div class="slider">
         <span id="comname">MusicCom</span>
@@ -141,7 +180,6 @@
             </a>
         </ul>
     </div>
-
     <div class="container">
         <div class="form_c">
             <input type="text" placeholder="输入你要查找的歌曲" id="in">
@@ -153,45 +191,46 @@
         </div>
     </div>
     <script type="text/javascript">
-        var songs = ["陈柏霖 - 我不会喜欢你","陈奕迅 - 浮夸","陈柏宇 - 你瞒我瞒","陈奕迅 - 爱情转移","陈奕迅 - 不如不见"];
-        var images = ["http://7xoehm.com1.z0.glb.clouddn.com/1.jpg","http://7xoehm.com1.z0.glb.clouddn.com/2.jpg","http://7xoehm.com1.z0.glb.clouddn.com/3.jpg","http://7xoehm.com1.z0.glb.clouddn.com/4.jpg","http://7xoehm.com1.z0.glb.clouddn.com/5.jpg"];
+    var songs = ["陈柏霖 - 我不会喜欢你", "陈奕迅 - 浮夸", "陈柏宇 - 你瞒我瞒", "陈奕迅 - 爱情转移", "陈奕迅 - 不如不见"];
+    var images = ["http://7xoehm.com1.z0.glb.clouddn.com/1.jpg", "http://7xoehm.com1.z0.glb.clouddn.com/2.jpg", "http://7xoehm.com1.z0.glb.clouddn.com/3.jpg", "http://7xoehm.com1.z0.glb.clouddn.com/4.jpg", "http://7xoehm.com1.z0.glb.clouddn.com/5.jpg"];
 
-        function getLiElem(img,author,index) {
-            var elem = document.createElement("li");
-            var imgElem = document.createElement("img");
-            var aElem = document.createElement("a");
-            var spanElem1 = document.createElement("span");
-            var spanElem2 = document.createElement("span");
-            spanElem1.className = "author";
-            spanElem2.className = "fa fa-play-circle play";
-            aElem.href = "index.html?index=" + index;
-            imgElem.src = img;
-            spanElem1.innerHTML = author;
-            aElem.appendChild(spanElem2);
-            elem.appendChild(imgElem);
-            elem.appendChild(spanElem1);
-            elem.appendChild(aElem);
+    function getLiElem(img, author, index) {
+        var elem = document.createElement("li");
+        var imgElem = document.createElement("img");
+        var aElem = document.createElement("a");
+        var spanElem1 = document.createElement("span");
+        var spanElem2 = document.createElement("span");
+        spanElem1.className = "author";
+        spanElem2.className = "fa fa-play-circle play";
+        aElem.href = "index.html?index=" + index;
+        imgElem.src = img;
+        spanElem1.innerHTML = author;
+        aElem.appendChild(spanElem2);
+        elem.appendChild(imgElem);
+        elem.appendChild(spanElem1);
+        elem.appendChild(aElem);
 
-            return elem;
-        }
+        return elem;
+    }
 
 
-        $("#search")[0].onclick = function() {
-            $("#results")[0].innerHTML = "";
-            var searchTarget = $("#in")[0].value;
-            var index = [];
-            for(var i in songs) {
-                if(songs[i].indexOf(searchTarget) != -1) {
-                    index.push(i);
-                }
-            };
-            if(index.length > 0) {
-                for(var i in index) {
-                    var temp = index[i];
-                    $("#results")[0].appendChild(getLiElem(images[temp],songs[temp],temp));
-                }
+    $("#search")[0].onclick = function() {
+        $("#results")[0].innerHTML = "";
+        var searchTarget = $("#in")[0].value;
+        var index = [];
+        for (var i in songs) {
+            if (songs[i].indexOf(searchTarget) != -1) {
+                index.push(i);
+            }
+        };
+        if (index.length > 0) {
+            for (var i in index) {
+                var temp = index[i];
+                $("#results")[0].appendChild(getLiElem(images[temp], songs[temp], temp));
             }
         }
+    }
     </script>
 </body>
+
 </html>
